@@ -38,7 +38,7 @@ export default function Gift() {
           Image from SK
         </button>
         {
-          imageOpen && <img src="/assets/shaira.jpg" alt="image" className="size- " /> // change classname to size
+          imageOpen && <img src="/assets/shaira.jpg" alt="image" className="size- py-10" /> // change classname to size
         }
         <p className="mt-8 text-lg text-gray-600">  
   I've woven these words with you in mind, <br />  

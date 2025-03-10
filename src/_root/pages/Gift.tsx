@@ -5,23 +5,14 @@ pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
 export default function Gift() {
   const [isOpen, setIsOpen] = useState(false)
+  const [imageOpen, setImageOpen] = useState(false)
 
 
 
-  const handleDownload = (e: React.MouseEvent) => {
+  const handleImageOpen = (e: React.MouseEvent) => {
     e.stopPropagation();
   
-    // Assuming the file is stored in the public/assets folder
-    const filePath = "/assets/shaira.jpg"; // Change this to your actual file path
-    const fileName = filePath.split('/').pop() || "downloaded-file"; // Fallback name
-  
-    const link = document.createElement("a");
-    link.href = filePath;
-    link.download = fileName;
-  
-    document.body.appendChild(link); // Append to body for Firefox support
-    link.click();
-    document.body.removeChild(link); // Cleanup
+    setImageOpen(!imageOpen)
   };
   
   
@@ -41,11 +32,14 @@ export default function Gift() {
         Please have a look at this, tried something, though my hands may falter and sway🌴 so a little thing for you, taking shape in its own humble way😁. 
         </p>
         <button
-          onClick={handleDownload}
+          onClick={handleImageOpen}
           className="rounded-full bg-rose-500 px-6 py-3 text-white transition-colors hover:bg-rose-600"
         >
           Image from SK
         </button>
+        {
+          imageOpen && <img src="/assets/shaira.jpg" alt="image" className="size- " /> // change classname to size
+        }
         <p className="mt-8 text-lg text-gray-600">  
   I've woven these words with you in mind, <br />  
   A little piece of heart you'll find. <br />  
